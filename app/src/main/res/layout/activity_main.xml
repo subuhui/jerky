@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+                name="viewModel"
+                type="com.subuhui.wanandroid.MainViewModel"/>
+    </data>
+
+    <LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".MainActivity"
+            android:orientation="vertical">
+
+        <androidx.viewpager.widget.ViewPager
+                android:layout_weight="1"
+                android:id="@+id/vp"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"/>
+
+        <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/white_f4"/>
+
+        <LinearLayout
+                android:id="@+id/ll"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/navigation_height"
+                android:orientation="horizontal">
+
+            <FrameLayout
+                    android:background="@drawable/selector_bg"
+                    android:onClick="@{(v)->viewModel.onClick(v)}"
+                    android:id="@+id/navigation_home"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                <ImageView
+                        android:layout_marginTop="@dimen/margin_top_10"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:src="@{viewModel.selectedPosition == 0?@drawable/vector_drawable_home_:@drawable/vector_drawable_home}"/>
+
+                <TextView
+                        android:layout_marginBottom="@dimen/margin_bottom_5"
+                        style="@style/TextSize14Black"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/title_home"
+                        android:layout_gravity="center_horizontal|bottom"/>
+            </FrameLayout>
+
+            <FrameLayout
+                    android:onClick="@{(v)->viewModel.onClick(v)}"
+                    android:background="@drawable/selector_bg"
+                    android:id="@+id/navigation_term"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                <ImageView
+                        android:layout_marginTop="@dimen/margin_top_10"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:src="@{viewModel.selectedPosition == 1?@drawable/vector_drawable_trem_:@drawable/vector_drawable_trem}"/>
+
+                <TextView
+                        android:layout_marginBottom="@dimen/margin_bottom_5"
+                        style="@style/TextSize14Black"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/title_term"
+                        android:layout_gravity="center_horizontal|bottom"/>
+            </FrameLayout>
+
+            <FrameLayout
+                    android:onClick="@{(v)->viewModel.onClick(v)}"
+                    android:id="@+id/navigation_todo"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5">
+
+                <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:src="@drawable/vector_drawable_add"/>
+
+            </FrameLayout>
+
+            <FrameLayout
+                    android:onClick="@{(v)->viewModel.onClick(v)}"
+                    android:background="@drawable/selector_bg"
+                    android:id="@+id/navigation_setup"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                <ImageView
+                        android:layout_marginTop="@dimen/margin_top_10"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:src="@{viewModel.selectedPosition == 3?@drawable/vector_setup:@drawable/vector_setup_}"/>
+
+                <TextView
+                        android:layout_marginBottom="@dimen/margin_bottom_5"
+                        style="@style/TextSize14Black"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/title_setup"
+                        android:layout_gravity="center_horizontal|bottom"/>
+            </FrameLayout>
+
+            <FrameLayout
+                    android:onClick="@{(v)->viewModel.onClick(v)}"
+                    android:id="@+id/navigation_blog"
+                    android:layout_width="0dp"
+                    android:background="@drawable/selector_bg"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                <ImageView
+                        android:layout_marginTop="@dimen/margin_top_10"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:src="@{viewModel.selectedPosition == 4?@drawable/vector_drawable_blog_:@drawable/vector_drawable_blog}"/>
+
+                <TextView
+                        android:layout_marginBottom="@dimen/margin_bottom_5"
+
+                        style="@style/TextSize14Black"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/title_blog"
+                        android:layout_gravity="center_horizontal|bottom"/>
+            </FrameLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>
